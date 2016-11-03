@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C0A47F1C1DCBB12F007E8DA1"
+               BuildableName = "c1-PingPong.app"
+               BlueprintName = "c1-PingPong"
+               ReferencedContainer = "container:c1-PingPong.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C0A47F301DCBB12F007E8DA1"
+               BuildableName = "c1-PingPongTests.xctest"
+               BlueprintName = "c1-PingPongTests"
+               ReferencedContainer = "container:c1-PingPong.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C0A47F3B1DCBB12F007E8DA1"
+               BuildableName = "c1-PingPongUITests.xctest"
+               BlueprintName = "c1-PingPongUITests"
+               ReferencedContainer = "container:c1-PingPong.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C0A47F1C1DCBB12F007E8DA1"
+            BuildableName = "c1-PingPong.app"
+            BlueprintName = "c1-PingPong"
+            ReferencedContainer = "container:c1-PingPong.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C0A47F1C1DCBB12F007E8DA1"
+            BuildableName = "c1-PingPong.app"
+            BlueprintName = "c1-PingPong"
+            ReferencedContainer = "container:c1-PingPong.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C0A47F1C1DCBB12F007E8DA1"
+            BuildableName = "c1-PingPong.app"
+            BlueprintName = "c1-PingPong"
+            ReferencedContainer = "container:c1-PingPong.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
