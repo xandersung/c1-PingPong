@@ -1,0 +1,18 @@
+PODS:
+  - AFMActionSheet (2.0.0)
+  - Bolts/Tasks (1.8.4)
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
+
+DEPENDENCIES:
+  - AFMActionSheet
+  - Parse
+
+SPEC CHECKSUMS:
+  AFMActionSheet: 516ed2aa70d8b38995c3f267e5dc844763cd1242
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+
+PODFILE CHECKSUM: b160a4f39405e1cdc3ec989cd7b64195a0c24070
+
+COCOAPODS: 1.0.1

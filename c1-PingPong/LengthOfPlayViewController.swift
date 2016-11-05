@@ -8,9 +8,9 @@
 
 import UIKit
 class LengthOfPlayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    @IBOutlet weak var tableView: UITableView!
     
     // var  item = ""
-    @IBOutlet weak var tableView: UITableView!
     var items = ["30 minutes", "60 minutes", "90 minutes"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +57,19 @@ class LengthOfPlayViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        performSegue(withIdentifier: "lengthOfPlayToReserveSegue", sender: nil)
+        print("Hello")
+        
+        
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
-     */
+    
     
 }
