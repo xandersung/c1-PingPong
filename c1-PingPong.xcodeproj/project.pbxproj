@@ -280,6 +280,7 @@
 				TargetAttributes = {
 					C0A47F1C1DCBB12F007E8DA1 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = JNRJESL7M9;
 						ProvisioningStyle = Automatic;
 					};
 					C0A47F301DCBB12F007E8DA1 = {
@@ -628,6 +629,7 @@
 			baseConfigurationReference = 493DE5D94B252BCBC3E75D2F /* Pods-c1-PingPong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JNRJESL7M9;
 				INFOPLIST_FILE = "c1-PingPong/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -642,6 +644,7 @@
 			baseConfigurationReference = B3C3618877EAB387936499D6 /* Pods-c1-PingPong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JNRJESL7M9;
 				INFOPLIST_FILE = "c1-PingPong/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
