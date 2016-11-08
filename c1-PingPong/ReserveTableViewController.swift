@@ -128,8 +128,8 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
         let subview = actionSheet.view.subviews.first! as UIView
         _ = subview.subviews.first! as UIView
         
-        actionSheet.backgroundColor = UIColor.lightGray
-        actionSheet.view.backgroundColor = UIColor.lightGray
+      //  actionSheet.backgroundColor = UIColor.lightGray
+      //  actionSheet.view.backgroundColor = UIColor.lightGray
         
         self.present(actionSheet, animated: true, completion: {
             //Disable wheel after user chooses the time
@@ -160,9 +160,8 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
                        let startingDate = (object["startingDate"] as! Date)
                        let endingDate = (object["endingDate"] as! Date)
                         
-                        
-                        
-                        if (startingDate...endingDate).contains(self.minutes) &&  (startingDate...endingDate).contains(self.datePicker.date)
+                
+                        if (startingDate...endingDate).contains(self.datePicker.date) &&  (startingDate...endingDate).contains(self.minutes)
                         
                         {
                             
@@ -227,16 +226,7 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
                 
                 
             } else {
-                let alertController = UIAlertController(title: "Network error", message: error as! String?, preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "dissmis", style: .cancel) { (action) in
-                }
-                
-                alertController.addAction(cancelAction)
-                self.present(alertController, animated: true) {
-                    self.reserveTableBtn.isEnabled = false
-                    
-                }
-                
+                print("error")
             }
         }
         
