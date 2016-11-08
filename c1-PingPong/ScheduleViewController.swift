@@ -218,6 +218,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    @IBAction func didTapAddReservation(_ sender: UITapGestureRecognizer) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let reserveVC = storyboard.instantiateViewController(withIdentifier: "reserveVC") as! ReserveTableViewController
+        self.present(reserveVC, animated: true, completion: nil)
+
+    }
+    
     
     //to actually pan cells
     /*

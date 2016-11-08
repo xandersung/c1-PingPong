@@ -91,6 +91,10 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Combined Shape" id="nwr-Qj-AxM">
                                 <rect key="frame" x="335" y="33" width="24" height="23"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6tm-Ba-Lnd" appends="YES" id="ZvV-hQ-3Qk"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,6 +110,11 @@
                         <action selector="panScheduleCell:" destination="XTX-L8-Gdc" id="oHB-JA-rAL"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="6tm-Ba-Lnd">
+                    <connections>
+                        <action selector="didTapAddReservation:" destination="XTX-L8-Gdc" id="tqF-sg-cK9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-888.5" y="-1686.5"/>
         </scene>
