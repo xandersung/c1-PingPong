@@ -129,9 +129,6 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
         
        
 
-    
-    
-    
         //Get starting and ending dates
         let query = PFQuery(className: "Schedule")
         query.findObjectsInBackground { (objects, error) in
