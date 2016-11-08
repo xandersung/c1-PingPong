@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		066AFF085F42024EF191CC79 /* Pods_c1_PingPong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FEAA8EA2CC91A13B15DF17 /* Pods_c1_PingPong.framework */; };
+		423CD9F8DC7D6C1315C83270 /* Pods_c1_PingPongUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7328A98EB267EAAC0D3C6D5E /* Pods_c1_PingPongUITests.framework */; };
+		7C0B28CAAA1669D0271ADBF9 /* Pods_c1_PingPongTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DE231D6E0343CBD132BDCA /* Pods_c1_PingPongTests.framework */; };
 		C0A47F211DCBB12F007E8DA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F201DCBB12F007E8DA1 /* AppDelegate.swift */; };
 		C0A47F281DCBB12F007E8DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0A47F271DCBB12F007E8DA1 /* Assets.xcassets */; };
 		C0A47F2B1DCBB12F007E8DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A47F291DCBB12F007E8DA1 /* LaunchScreen.storyboard */; };
@@ -15,17 +18,15 @@
 		C0A47F551DCBB14C007E8DA1 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F4E1DCBB14C007E8DA1 /* BaseTransition.swift */; };
 		C0A47F561DCBB14C007E8DA1 /* Common (2).swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F4F1DCBB14C007E8DA1 /* Common (2).swift */; };
 		C0A47F571DCBB14C007E8DA1 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F501DCBB14C007E8DA1 /* FadeTransition.swift */; };
-		C0A47F581DCBB14C007E8DA1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A47F511DCBB14C007E8DA1 /* Login.storyboard */; };
-		C0A47F591DCBB14C007E8DA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F521DCBB14C007E8DA1 /* LoginViewController.swift */; };
-		C0A47F5A1DCBB14C007E8DA1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F531DCBB14C007E8DA1 /* SignUpViewController.swift */; };
-		C0A47F5B1DCBB14C007E8DA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F541DCBB14C007E8DA1 /* ViewController.swift */; };
 		C0A47F5F1DCBB165007E8DA1 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A47F5C1DCBB165007E8DA1 /* Schedule.storyboard */; };
 		C0A47F601DCBB165007E8DA1 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F5D1DCBB165007E8DA1 /* ScheduleCell.swift */; };
 		C0A47F611DCBB165007E8DA1 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F5E1DCBB165007E8DA1 /* ScheduleViewController.swift */; };
-		C0A47F631DCBB195007E8DA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A47F621DCBB195007E8DA1 /* Main.storyboard */; };
 		C0A47F671DCBB19D007E8DA1 /* LengthOfPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F641DCBB19D007E8DA1 /* LengthOfPlayViewController.swift */; };
-		C0A47F681DCBB19D007E8DA1 /* ReserveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F651DCBB19D007E8DA1 /* ReserveTableViewController.swift */; };
-		C0A47F691DCBB19D007E8DA1 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A47F661DCBB19D007E8DA1 /* SuccessViewController.swift */; };
+		C0E957DC1DD2542300BE5A16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E957DB1DD2542300BE5A16 /* Main.storyboard */; };
+		C0E957DE1DD2543200BE5A16 /* ReserveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E957DD1DD2543200BE5A16 /* ReserveTableViewController.swift */; };
+		C0E957E21DD2756D00BE5A16 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E957DF1DD2756D00BE5A16 /* SignUpViewController.swift */; };
+		C0E957E31DD2756D00BE5A16 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E957E01DD2756D00BE5A16 /* LoginViewController.swift */; };
+		C0E957E41DD2756D00BE5A16 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0E957E11DD2756D00BE5A16 /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16A5BBF0D62CA3D4AC373963 /* Pods-c1-PingPong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-c1-PingPong.release.xcconfig"; path = "Pods/Target Support Files/Pods-c1-PingPong/Pods-c1-PingPong.release.xcconfig"; sourceTree = "<group>"; };
+		16FEAA8EA2CC91A13B15DF17 /* Pods_c1_PingPong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_c1_PingPong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7328A98EB267EAAC0D3C6D5E /* Pods_c1_PingPongUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_c1_PingPongUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85DE231D6E0343CBD132BDCA /* Pods_c1_PingPongTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_c1_PingPongTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9621BB1FD37F08C93796EB96 /* Pods-c1-PingPongTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-c1-PingPongTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-c1-PingPongTests/Pods-c1-PingPongTests.release.xcconfig"; sourceTree = "<group>"; };
+		AD6403FD5D7E274161585F31 /* Pods-c1-PingPongUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-c1-PingPongUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-c1-PingPongUITests/Pods-c1-PingPongUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B6A6230E606CF86C8D8FE7D4 /* Pods-c1-PingPong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-c1-PingPong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-c1-PingPong/Pods-c1-PingPong.debug.xcconfig"; sourceTree = "<group>"; };
 		C0A47F1D1DCBB12F007E8DA1 /* c1-PingPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "c1-PingPong.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A47F201DCBB12F007E8DA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0A47F271DCBB12F007E8DA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,17 +68,17 @@
 		C0A47F4E1DCBB14C007E8DA1 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
 		C0A47F4F1DCBB14C007E8DA1 /* Common (2).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Common (2).swift"; sourceTree = "<group>"; };
 		C0A47F501DCBB14C007E8DA1 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
-		C0A47F511DCBB14C007E8DA1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		C0A47F521DCBB14C007E8DA1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C0A47F531DCBB14C007E8DA1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		C0A47F541DCBB14C007E8DA1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0A47F5C1DCBB165007E8DA1 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		C0A47F5D1DCBB165007E8DA1 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		C0A47F5E1DCBB165007E8DA1 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		C0A47F621DCBB195007E8DA1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0A47F641DCBB19D007E8DA1 /* LengthOfPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LengthOfPlayViewController.swift; sourceTree = "<group>"; };
-		C0A47F651DCBB19D007E8DA1 /* ReserveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveTableViewController.swift; sourceTree = "<group>"; };
-		C0A47F661DCBB19D007E8DA1 /* SuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		C0E957DB1DD2542300BE5A16 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C0E957DD1DD2543200BE5A16 /* ReserveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveTableViewController.swift; sourceTree = "<group>"; };
+		C0E957DF1DD2756D00BE5A16 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C0E957E01DD2756D00BE5A16 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C0E957E11DD2756D00BE5A16 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CFA1B704EE10BE2E52E3C187 /* Pods-c1-PingPongUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-c1-PingPongUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-c1-PingPongUITests/Pods-c1-PingPongUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EC21C0CC4141F05BEB5F3A04 /* Pods-c1-PingPongTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-c1-PingPongTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-c1-PingPongTests/Pods-c1-PingPongTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				066AFF085F42024EF191CC79 /* Pods_c1_PingPong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C0B28CAAA1669D0271ADBF9 /* Pods_c1_PingPongTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +102,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423CD9F8DC7D6C1315C83270 /* Pods_c1_PingPongUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46B1E6DC12519FD05D6FB07B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6A6230E606CF86C8D8FE7D4 /* Pods-c1-PingPong.debug.xcconfig */,
+				16A5BBF0D62CA3D4AC373963 /* Pods-c1-PingPong.release.xcconfig */,
+				EC21C0CC4141F05BEB5F3A04 /* Pods-c1-PingPongTests.debug.xcconfig */,
+				9621BB1FD37F08C93796EB96 /* Pods-c1-PingPongTests.release.xcconfig */,
+				AD6403FD5D7E274161585F31 /* Pods-c1-PingPongUITests.debug.xcconfig */,
+				CFA1B704EE10BE2E52E3C187 /* Pods-c1-PingPongUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8B6F0203ACEFD481F9B853F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16FEAA8EA2CC91A13B15DF17 /* Pods_c1_PingPong.framework */,
+				85DE231D6E0343CBD132BDCA /* Pods_c1_PingPongTests.framework */,
+				7328A98EB267EAAC0D3C6D5E /* Pods_c1_PingPongUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C0A47F141DCBB12F007E8DA1 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +139,8 @@
 				C0A47F341DCBB12F007E8DA1 /* c1-PingPongTests */,
 				C0A47F3F1DCBB12F007E8DA1 /* c1-PingPongUITests */,
 				C0A47F1E1DCBB12F007E8DA1 /* Products */,
+				46B1E6DC12519FD05D6FB07B /* Pods */,
+				8B6F0203ACEFD481F9B853F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,19 +162,17 @@
 				C0A47F291DCBB12F007E8DA1 /* LaunchScreen.storyboard */,
 				C0A47F2C1DCBB12F007E8DA1 /* Info.plist */,
 				C0A47F4E1DCBB14C007E8DA1 /* BaseTransition.swift */,
+				C0E957DB1DD2542300BE5A16 /* Main.storyboard */,
 				C0A47F4F1DCBB14C007E8DA1 /* Common (2).swift */,
-				C0A47F621DCBB195007E8DA1 /* Main.storyboard */,
 				C0A47F5C1DCBB165007E8DA1 /* Schedule.storyboard */,
 				C0A47F5D1DCBB165007E8DA1 /* ScheduleCell.swift */,
+				C0E957DF1DD2756D00BE5A16 /* SignUpViewController.swift */,
+				C0E957E01DD2756D00BE5A16 /* LoginViewController.swift */,
+				C0E957E11DD2756D00BE5A16 /* Login.storyboard */,
 				C0A47F5E1DCBB165007E8DA1 /* ScheduleViewController.swift */,
+				C0E957DD1DD2543200BE5A16 /* ReserveTableViewController.swift */,
 				C0A47F501DCBB14C007E8DA1 /* FadeTransition.swift */,
 				C0A47F641DCBB19D007E8DA1 /* LengthOfPlayViewController.swift */,
-				C0A47F651DCBB19D007E8DA1 /* ReserveTableViewController.swift */,
-				C0A47F661DCBB19D007E8DA1 /* SuccessViewController.swift */,
-				C0A47F511DCBB14C007E8DA1 /* Login.storyboard */,
-				C0A47F521DCBB14C007E8DA1 /* LoginViewController.swift */,
-				C0A47F531DCBB14C007E8DA1 /* SignUpViewController.swift */,
-				C0A47F541DCBB14C007E8DA1 /* ViewController.swift */,
 			);
 			path = "c1-PingPong";
 			sourceTree = "<group>";
@@ -168,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0A47F451DCBB12F007E8DA1 /* Build configuration list for PBXNativeTarget "c1-PingPong" */;
 			buildPhases = (
+				3576F47CE8DEDF99D8CAFCA4 /* [CP] Check Pods Manifest.lock */,
 				C0A47F191DCBB12F007E8DA1 /* Sources */,
 				C0A47F1A1DCBB12F007E8DA1 /* Frameworks */,
 				C0A47F1B1DCBB12F007E8DA1 /* Resources */,
+				D239B1BDBCF7DC03055CE365 /* [CP] Embed Pods Frameworks */,
+				5827206BCEBACA75FB825018 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0A47F481DCBB12F007E8DA1 /* Build configuration list for PBXNativeTarget "c1-PingPongTests" */;
 			buildPhases = (
+				DEC2A5B381D477DBFB6DEF5B /* [CP] Check Pods Manifest.lock */,
 				C0A47F2D1DCBB12F007E8DA1 /* Sources */,
 				C0A47F2E1DCBB12F007E8DA1 /* Frameworks */,
 				C0A47F2F1DCBB12F007E8DA1 /* Resources */,
+				3364C8D9A7CF8DA63EBAB010 /* [CP] Embed Pods Frameworks */,
+				3DA89B27C6F002048BF5A99B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,9 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0A47F4B1DCBB12F007E8DA1 /* Build configuration list for PBXNativeTarget "c1-PingPongUITests" */;
 			buildPhases = (
+				3B9F8AD3264F8BB1B0F2D8C8 /* [CP] Check Pods Manifest.lock */,
 				C0A47F381DCBB12F007E8DA1 /* Sources */,
 				C0A47F391DCBB12F007E8DA1 /* Frameworks */,
 				C0A47F3A1DCBB12F007E8DA1 /* Resources */,
+				BB0EF6C95DF9C95B71A40905 /* [CP] Embed Pods Frameworks */,
+				8F91D933493CAF815C452D17 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,9 +312,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0A47F2B1DCBB12F007E8DA1 /* LaunchScreen.storyboard in Resources */,
-				C0A47F631DCBB195007E8DA1 /* Main.storyboard in Resources */,
+				C0E957DC1DD2542300BE5A16 /* Main.storyboard in Resources */,
 				C0A47F281DCBB12F007E8DA1 /* Assets.xcassets in Resources */,
-				C0A47F581DCBB14C007E8DA1 /* Login.storyboard in Resources */,
+				C0E957E41DD2756D00BE5A16 /* Login.storyboard in Resources */,
 				C0A47F5F1DCBB165007E8DA1 /* Schedule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,22 +335,158 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3364C8D9A7CF8DA63EBAB010 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-c1-PingPongTests/Pods-c1-PingPongTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3576F47CE8DEDF99D8CAFCA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3B9F8AD3264F8BB1B0F2D8C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3DA89B27C6F002048BF5A99B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-c1-PingPongTests/Pods-c1-PingPongTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5827206BCEBACA75FB825018 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-c1-PingPong/Pods-c1-PingPong-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F91D933493CAF815C452D17 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-c1-PingPongUITests/Pods-c1-PingPongUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB0EF6C95DF9C95B71A40905 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-c1-PingPongUITests/Pods-c1-PingPongUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D239B1BDBCF7DC03055CE365 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-c1-PingPong/Pods-c1-PingPong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEC2A5B381D477DBFB6DEF5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C0A47F191DCBB12F007E8DA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0A47F5A1DCBB14C007E8DA1 /* SignUpViewController.swift in Sources */,
 				C0A47F211DCBB12F007E8DA1 /* AppDelegate.swift in Sources */,
 				C0A47F601DCBB165007E8DA1 /* ScheduleCell.swift in Sources */,
-				C0A47F681DCBB19D007E8DA1 /* ReserveTableViewController.swift in Sources */,
 				C0A47F611DCBB165007E8DA1 /* ScheduleViewController.swift in Sources */,
 				C0A47F561DCBB14C007E8DA1 /* Common (2).swift in Sources */,
 				C0A47F571DCBB14C007E8DA1 /* FadeTransition.swift in Sources */,
-				C0A47F5B1DCBB14C007E8DA1 /* ViewController.swift in Sources */,
-				C0A47F591DCBB14C007E8DA1 /* LoginViewController.swift in Sources */,
+				C0E957DE1DD2543200BE5A16 /* ReserveTableViewController.swift in Sources */,
+				C0E957E21DD2756D00BE5A16 /* SignUpViewController.swift in Sources */,
 				C0A47F671DCBB19D007E8DA1 /* LengthOfPlayViewController.swift in Sources */,
-				C0A47F691DCBB19D007E8DA1 /* SuccessViewController.swift in Sources */,
+				C0E957E31DD2756D00BE5A16 /* LoginViewController.swift in Sources */,
 				C0A47F551DCBB14C007E8DA1 /* BaseTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,30 +629,33 @@
 		};
 		C0A47F461DCBB12F007E8DA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A6230E606CF86C8D8FE7D4 /* Pods-c1-PingPong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "c1-PingPong/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "codePath.c1-PingPong";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
 		C0A47F471DCBB12F007E8DA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16A5BBF0D62CA3D4AC373963 /* Pods-c1-PingPong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "c1-PingPong/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "codePath.c1-PingPong";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
 		C0A47F491DCBB12F007E8DA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC21C0CC4141F05BEB5F3A04 /* Pods-c1-PingPongTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +670,7 @@
 		};
 		C0A47F4A1DCBB12F007E8DA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9621BB1FD37F08C93796EB96 /* Pods-c1-PingPongTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +685,7 @@
 		};
 		C0A47F4C1DCBB12F007E8DA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD6403FD5D7E274161585F31 /* Pods-c1-PingPongUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "c1-PingPongUITests/Info.plist";
@@ -515,6 +699,7 @@
 		};
 		C0A47F4D1DCBB12F007E8DA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFA1B704EE10BE2E52E3C187 /* Pods-c1-PingPongUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "c1-PingPongUITests/Info.plist";
@@ -545,6 +730,7 @@
 				C0A47F471DCBB12F007E8DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0A47F481DCBB12F007E8DA1 /* Build configuration list for PBXNativeTarget "c1-PingPongTests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +739,7 @@
 				C0A47F4A1DCBB12F007E8DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0A47F4B1DCBB12F007E8DA1 /* Build configuration list for PBXNativeTarget "c1-PingPongUITests" */ = {
 			isa = XCConfigurationList;
@@ -561,6 +748,7 @@
 				C0A47F4D1DCBB12F007E8DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
