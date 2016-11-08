@@ -85,7 +85,6 @@ class LoginViewController: UIViewController,UIScrollViewDelegate {
                     let storyboard = UIStoryboard(name: "Schedule", bundle: nil)
                     let eventVC = storyboard.instantiateViewController(withIdentifier: "ScheduleVC") as! ScheduleViewController
                     self.present(eventVC, animated: true, completion: nil)
-
                 } else {
                     let alertController = UIAlertController(title: "Incorrect Credentials", message: "Please try again", preferredStyle: .alert)
                     

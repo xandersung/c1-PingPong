@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
@@ -16,13 +17,17 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     var names:[String]!
     var initials:[String]!
     var times:[String]!
+    var scheduleData:[PFObject]!
+    var headerArray:[String]!
+    var rowCountArray = [Int]()
+    var tableViewIndex:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        names =  ["Alexander Sung", "Yuliang Ma", "Joey Edwards", "Alexander Sung", "Yuliang Ma", "Joey Edwards"]
-        initials = ["AS", "YM", "JE", "AS", "YM", "JE"]
-        times = ["11:00 AM", "11:30 AM", "11:30 AM", "12:30 PM", "12:30 PM", "1:30 PM", "2:00 PM", "3:00 PM", "4:00 PM", "4:30 PM", "4:30 PM", "5:00 PM"]
         
+        callScheduleAPI()
+        tableViewIndex = 0
+
         scheduleTableView.dataSource = self
         scheduleTableView.delegate = self
         scheduleTableView.refreshControl = UIRefreshControl.init()
@@ -32,87 +37,152 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func callScheduleAPI() {
+        headerArray = []
+        rowCountArray = []
+        let query = PFQuery(className:"Schedule")
+        query.order(byAscending: "startingDate")
+        query.includeKey("user")
+        query.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) in
+            self.scheduleData = objects
+            if (objects?.count)! < 1 {
+                return
+            }
+            let firstEvent = objects![0]
+            print(firstEvent["startingDate"])
+            self.updateRowAndHeaderArrays()
+            print(self.rowCountArray)
+            self.scheduleTableView.reloadData()
+        }
+        
+    }
+    
+    func updateRowAndHeaderArrays() {
+        headerArray = []
+        rowCountArray = []
+        var index = 0
+        for events in self.scheduleData! {
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT+0:00") as TimeZone!
+            dateFormatter.dateFormat = "LLLL d"
+            let stringDate = dateFormatter.string(from: events["startingDate"] as! Date)
+            print(stringDate)
+            if !self.headerArray.contains(stringDate) {
+                self.headerArray.append(dateFormatter.string(from: events["startingDate"] as! Date))
+                self.rowCountArray.append(1)
+                print(self.rowCountArray)
+                index += 1
+            } else {
+                self.rowCountArray[index - 1] = self.rowCountArray[index - 1] + 1
+            }
+        }
+
     }
     
 
     func refreshTableView() {
         let delayInSeconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
-            self.names =  ["Alexander Sung", "Yuliang Ma", "Joey Edwards", "Alexander Sung", "Yuliang Ma", "Joey Edwards"]
+
+            self.callScheduleAPI()
+            
             self.scheduleTableView.reloadData()
             self.scheduleTableView.refreshControl?.endRefreshing()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return names.count
-        } else {
-            return 0
-        }
+        return scheduleData == nil ? 0 : rowCountArray[section]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return headerArray == nil ? 0 : headerArray.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Today, November 1"
-        } else if section == 1 {
-            return "Tomorrow, November 2"
-        } else if section == 2 {
-            return "November 3"
-        } else if section == 3 {
-            return "November 4"
-        } else if section == 4 {
-            return "November 5"
-        } else if section == 5 {
-            return "November 6"
-        } else if section == 6 {
-            return "November 7"
-        }
-        return "Header"
+        return  headerArray == nil ? "" : headerArray[section]
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        tableViewIndex = 0
         let cell = scheduleTableView.dequeueReusableCell(withIdentifier: "ScheduleCell")! as! ScheduleCell
 //        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
 //        panGestureRecognizer.delegate = self
 //        cell.addGestureRecognizer(panGestureRecognizer)
         
         //need to account for section later
-        cell.tag = indexPath.row
         
-        cell.nameLabel.text = names[indexPath.row]
-        cell.initialsLabel.text = initials[indexPath.row]
-        cell.startingTimeLabel.text = times[indexPath.row * 2]
-        cell.endingTimeLabel.text = times[indexPath.row * 2 + 1]
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
-        if names[indexPath.row] == "Alexander Sung" {
-            cell.cellBar.backgroundColor = UIColor.red
+        cell.nameLabel.text = "User 5"
+        cell.initialsLabel.text = "AS"
+        let hourDateFormatter = DateFormatter()
+        hourDateFormatter.dateFormat = "hh:mm a"
+//        let dayDateFormatter = DateFormatter()
+//        dayDateFormatter.dateFormat = "LLLL d"
+//        let sectionDay = dayDateFormatter.date(from: headerArray[indexPath.section])
+//        for eventObject in scheduleData! {
+//            let dateForEvent = eventObject["startingDate"] as! Date
+//            if Calendar.current.isDate(sectionDay!, inSameDayAs: dateForEvent) {
+////                let section = index
+//            }
+//        }
+        
+        // generate tableViewIndex based on current row and section
+        if indexPath.section == 0 {
+            tableViewIndex = indexPath.row
         } else {
-            cell.cellBar.backgroundColor = UIColor.blue
+            for rowCount in 0...indexPath.section - 1{
+                tableViewIndex = tableViewIndex + rowCountArray[rowCount]
+            }
+            tableViewIndex = tableViewIndex + indexPath.row
         }
+//        print("section-\(indexPath.section) row-\(indexPath.row)")
+//        print(tableViewIndex)
+        cell.tag = tableViewIndex
+        cell.startingTimeLabel.text = hourDateFormatter.string(from:scheduleData[tableViewIndex]["startingDate"] as! Date)
+        cell.endingTimeLabel.text = hourDateFormatter.string(from:scheduleData[tableViewIndex]["endingDate"] as! Date)
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+//        if scheduleData[tableViewIndex]["userID"] as! String == user.ID {
+//            cell.cellBar.backgroundColor = UIColor.red
+//        } else {
+//            cell.cellBar.backgroundColor = UIColor.blue
+//        }
+        tableViewIndex = 0
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if names[indexPath.row] == "Alexander Sung" {
-            if editingStyle == UITableViewCellEditingStyle.delete {
-                names.remove(at:indexPath.row)
+        
+        var eventForDeletion = PFObject(className:"Schedule")
+        print(scheduleData[(tableView.cellForRow(at: indexPath)?.tag)!])
+//        eventForDeletion["objectID"] = scheduleData[(tableView.cellForRow(at: indexPath)?.tag)!]
+        eventForDeletion = scheduleData[(tableView.cellForRow(at: indexPath)?.tag)!]
+        eventForDeletion.deleteInBackground { (bool: Bool, error: Error?) in
+            if (error != nil) {
+                print(error?.localizedDescription ?? "error happened")
+            } else {
+                self.scheduleData.remove(at: (tableView.cellForRow(at: indexPath)?.tag)!)
+                self.updateRowAndHeaderArrays()
+                print("deletion was a success")
                 tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
-                //            tableView.reloadData()
             }
-        } else {
-            let errorAlert = UIAlertController(title: "Error", message: "You can only delete your own events.", preferredStyle: .alert)
-            errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(errorAlert, animated: true, completion: nil)
         }
+        tableView.reloadData()
+//        if names[indexPath.row] == "Alexander Sung" {
+//            if editingStyle == UITableViewCellEditingStyle.delete {
+//                names.remove(at:indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+//                //            tableView.reloadData()
+//            }
+//        } else {
+//            let errorAlert = UIAlertController(title: "Error", message: "You can only delete your own events.", preferredStyle: .alert)
+//            errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(errorAlert, animated: true, completion: nil)
+//        }
 
         
         
@@ -127,19 +197,19 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+//        print(indexPath)
         
-        if names[indexPath.row] == "Alexander Sung"  {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let eventVC = storyboard.instantiateViewController(withIdentifier: "reserveVC") as! ReserveTableViewController
-            self.present(eventVC, animated: true, completion: nil)
-        }
-        else {
-            let errorAlert = UIAlertController(title: "Error", message: "You can only edit your own events.", preferredStyle: .alert)
-            errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(errorAlert, animated: true, completion: nil)
-        }
-        
+//        if names[indexPath.row] == "Alexander Sung"  {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let eventVC = storyboard.instantiateViewController(withIdentifier: "reserveVC") as! ReserveTableViewController
+//            self.present(eventVC, animated: true, completion: nil)
+//        }
+//        else {
+//            let errorAlert = UIAlertController(title: "Error", message: "You can only edit your own events.", preferredStyle: .alert)
+//            errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(errorAlert, animated: true, completion: nil)
+//        }
+//        
     }
     
 
@@ -148,6 +218,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    
+    //to actually pan cells
     /*
     func didPan(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
