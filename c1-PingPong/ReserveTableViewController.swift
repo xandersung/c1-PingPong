@@ -15,6 +15,9 @@ struct PFDate {
 
 class ReserveTableViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
+    
+    
+    
     @IBOutlet weak var reserveTableBtn: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
@@ -56,7 +59,6 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
     
     
     @IBAction func pickerValueChanged(_ sender: AnyObject) {
-        
         let formatter = DateFormatter()
         formatter.timeZone = NSTimeZone.local
         formatter.dateFormat = "EEEE"
@@ -82,6 +84,9 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
     
     
     
+
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -92,9 +97,13 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
     @IBAction func didPress30(_ sender: AnyObject) {
         //Enables reserve button
         reserveTableBtn.isEnabled = true
+        
+        
+        
         let actionSheet = AFMActionSheetController(style: .actionSheet)
         let action0 = AFMAction(title: "30 minutes", enabled: true, handler: { (action: AFMAction) -> Void in
             self.minutes =  self.datePicker.date+(timeIntervalSinceNow: 60 * 30)
+            
         })
         
         
@@ -141,6 +150,7 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
     
     
     
+    //This querys the ending and starting date
     func queryEndingAndStartDateAndCompare() {
         
         //Get starting and ending dates
@@ -161,17 +171,20 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
                        let endingDate = (object["endingDate"] as! Date)
                         
                 
-                        if (startingDate...endingDate).contains(self.datePicker.date) &&  (startingDate...endingDate).contains(self.minutes)
+                    
+                       
                         
-                        {
-                            
+                        
+            
+                        
+                        if (startingDate...endingDate).contains(self.datePicker.date) ||  (startingDate...endingDate).contains(self.minutes) {
                             print("error already reseved")
-                        }
                             
-                        else {
+                        } else if (self.datePicker.date...self.minutes).contains(startingDate) &&  (self.datePicker.date...self.minutes).contains(endingDate)  {
                             
-                            print("Sucess!!!")
                             
+                        } else {
+                             print("Sucess!!!")
                         }
                         
                         
@@ -188,17 +201,13 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
     
     
     
-    
 
-    
-    
-    
     
     @IBAction func didPressReserveBtn(_ sender: UIButton) {
         
         let reservation = PFObject(className:"Schedule")
         reservation["startingDate"] = self.datePicker.date
-        //Uncomment when plugin
+        //Uncomment when login plugin
         //---reservation["user"] = PFUser.current()
         reservation["endingDate"] = self.minutes
         
@@ -234,26 +243,7 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
         
         
     }
-    
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 
