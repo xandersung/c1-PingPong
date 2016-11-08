@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" restorationIdentifier="selectedDate" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="7fJ-Ni-vBl">
+                            <datePicker contentMode="scaleToFill" misplaced="YES" restorationIdentifier="selectedDate" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" id="7fJ-Ni-vBl">
                                 <frame key="frameInset" minY="357" height="233"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,9 +92,13 @@
                                             <color key="titleColor" red="1" green="0.050692130376954525" blue="0.13779079361432067" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="didPress30:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VHK-4n-ICZ"/>
+                                            <action selector="didPress30:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qm1-sn-Aky"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="download" id="H39-H3-vyD">
+                                        <frame key="frameInset" minX="250" minY="-9" width="53" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.69232744065486829" green="1" blue="0.54366658580748239" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -113,9 +117,11 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="hbk-vX-BVN"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bubleIcon" destination="H39-H3-vyD" id="pSA-oV-gpB"/>
                         <outlet property="dateLabel" destination="dfi-t5-XJa" id="IHW-9u-5h7"/>
                         <outlet property="datePicker" destination="7fJ-Ni-vBl" id="WPP-NF-Hgd"/>
                         <outlet property="reserveTableBtn" destination="7fp-Hg-Wt4" id="8ml-NR-ndo"/>
+                        <outlet property="selectTimeLength" destination="EOP-d3-RKz" id="BAK-Km-KS9"/>
                         <outlet property="timeLabel" destination="sDK-ar-NKe" id="k3O-EG-Djp"/>
                     </connections>
                 </viewController>
@@ -204,11 +210,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="fo4-SH-D9y" id="NPl-dv-xRr">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Rf-7F-iFU">
-                                                    <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                                    <frame key="frameInset" minX="15" width="345" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -267,6 +273,7 @@
     </scenes>
     <resources>
         <image name="backnaveBar" width="375" height="67"/>
+        <image name="download" width="225" height="225"/>
         <image name="startDateCalendar" width="26" height="28"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
