@@ -1,7 +1,6 @@
 //
 //  ReserveTableViewController.swift
 //  Reseve Me
-//
 //  Created by Poudel, Trilochan on 10/27/16.
 //  Copyright © 2016 Stars99. All rights reserved.
 //
@@ -20,13 +19,8 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var reserveBtn: UIButton!
     
-    var added30Minutes: Date!
-    
-    
-    
-    var myDateLabel = [String]()
+    var minutes: Date!
     var datesArray = [PFDate]()
     
     
@@ -49,12 +43,9 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
             options: [.autoreverse,.repeat], animations: { () -> Void in
                 // self.exploreLabel.transform = CGAffineTransform(translationX: 0, y: 10)
             }, completion: nil)
-        
-        
-        
-        
-        
     }
+    
+    
     @IBAction func pickerValueChanged(_ sender: AnyObject) {
         
         let formatter = DateFormatter()
@@ -65,10 +56,8 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
         formatter.dateFormat = "hh:mm a"
         timeLabel.text = formatter.string(from: datePicker.date)
         
-        
         //Only allow to reserve for a future date and not past date
         datePicker.minimumDate = Date()
-        
         
         //Only allow user to reserve for till next week
         let secondsInMonth: TimeInterval = 7 * 24 * 60 * 60
@@ -79,120 +68,154 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
                        options: [.autoreverse,.repeat], animations: { () -> Void in
                         //  self.exploreLabel.transform = CGAffineTransform(translationX: 0, y: 10)
             }, completion: nil)
-        
     }
+    
+    
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    
+    
+    
     @IBAction func didPressReserveBtn(_ sender: UIButton) {
-        var reservation = PFObject(className:"Schedule")
-        reservation["startingDate"] = datePicker.date
         
+        var reservation = PFObject(className:"Schedule")
+        reservation["startingDate"] = self.datePicker.date
+        //Uncomment when plugin
+        //---reservation["user"] = PFUser.current()
+        reservation["endingDate"] = self.minutes
+        
+        
+        // self.datePicker.isEnabled = true
         
         //should get from user vc
         reservation["userID"] = 5
-        
-        
-        //This will get the user anme from user
-        //--------------  reservation["user"] = PFUser.current()
-        
-        
-        
-        //adding 30 minutes to the current date
-      //  reservation["endingDate"] =  datePicker.date+(timeIntervalSinceNow: 60 * 30)
-        
-        
-        reservation["endingDate"] =   added30Minutes
         
         
         
         reservation.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("reservation saved")
+                
+                
+                let alertController = UIAlertController(title: "Success!!", message: nil, preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Schedule", style: .cancel) { (action) in
+                }
+                
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true) {
+                    self.reserveTableBtn.isEnabled = false
+                    
+                }
+                
+                
             } else {
+                
+                let alertController = UIAlertController(title: "Network error", message: nil, preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "dissmis", style: .cancel) { (action) in
+                }
+                
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true) {
+                    self.reserveTableBtn.isEnabled = false
+                    
+                }
                 
             }
         }
         
-        dismiss(animated: true, completion: nil)
-        
-        
-        
-        
-                        let alertController = UIAlertController(title: "Success!", message: nil, preferredStyle: .alert)
-        
-                      //  let alertController = UIAlertController(title: "Success!", message: nil, preferredStyle: .alert)
-        
-                      //  let successMessage = UIAlertAction(title: "Reserved", style: .default) { (action) in
-                          
-                      //  }
-        
-        
-                        // add the logout action to the alert controller
-                      //  alertController.addAction(successMessage)
-                        let cancelAction = UIAlertAction(title: "Go to Schedule", style: .cancel) { (action) in
-        
-        
-                            // handle case of user canceling. Doing nothing will dismiss the view.
-                        }
-        
-        
-                        // add the cancel action to the alert controller
-        
-                         alertController.addAction(cancelAction)
-                        let subview = alertController.view.subviews.first! as UIView
-                        let alertContentView = subview.subviews.first! as UIView
-        
-                        // alertContentView.alpha = 0.50
-                        alertContentView.backgroundColor = UIColor.clear
-        
-        
-                        present(alertController, animated: true) {
-                            // optional code for what happens after the alert controller has finished presenting
-        
-                            alertContentView.alpha = 0.9
-                            self.reserveTableBtn.isEnabled = false
+       
 
+    
+    
+    
+        //Get starting and ending dates
+        let query = PFQuery(className: "Schedule")
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+    
+                print(objects)
+    
+                if let returnedobjects = objects {
+                    for object in returnedobjects {
+    
+                         print(object["startingDate"] as! Date)
+                         print(object["endingDate"] as! Date)
+    
+    
+                        let startingDate = (object["startingDate"] as! Date)
+    
+    
+                        let endingDate = (object["endingDate"] as! Date)
+    
+    
+    
+                        if (startingDate...endingDate).contains(self.datePicker.date) &&  (startingDate...endingDate).contains(self.minutes) {
+                            
+                            print("error already reseved")
+                            
+                            
+                            let alertController = UIAlertController(title: "This time is already taken Please chhose another time", message: nil, preferredStyle: .alert)
+                            let cancelAction = UIAlertAction(title: "dissmis", style: .cancel) { (action) in
+                            }
+                            
+                            alertController.addAction(cancelAction)
+                            self.present(alertController, animated: true) {
+                                self.reserveTableBtn.isEnabled = false
+                                
+                            }
                         }
+                            
+                            
+                        else {
+                            
+                            
+                            
+
+                    
+                    
+                    }}}
         
-        
-        
+    
+            }
+        }
     }
     
-
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func didPress30(_ sender: AnyObject) {
         //Enables reserve button
         reserveTableBtn.isEnabled = true
         let actionSheet = AFMActionSheetController(style: .actionSheet)
         let action0 = AFMAction(title: "30 minutes", enabled: true, handler: { (action: AFMAction) -> Void in
-            // Do something in handler
-             self.added30Minutes =  self.datePicker.date+(timeIntervalSinceNow: 60 * 30)
+            self.minutes =  self.datePicker.date+(timeIntervalSinceNow: 60 * 30)
         })
         
         
         let action1 = AFMAction(title: "60 minutes", enabled: true, handler: { (action: AFMAction) -> Void in
-            // Do something in handler
-             self.added30Minutes  =  self.datePicker.date+(timeIntervalSinceNow: 60 * 60)
+            self.minutes  =  self.datePicker.date+(timeIntervalSinceNow: 60 * 60)
         })
         
         
         let action2 = AFMAction(title: "75 minutes", enabled: true, handler: { (action: AFMAction) -> Void in
-            // Do something in handler
-             self.added30Minutes  =  self.datePicker.date+(timeIntervalSinceNow: 60 * 75)
+            self.minutes  =  self.datePicker.date+(timeIntervalSinceNow: 60 * 75)
         })
         
-    
+        
         let action3 = AFMAction(title: "90 minutes", enabled: true, handler: { (action: AFMAction) -> Void in
-            // Do something in handler
-            //adds 90 minutes
-             self.added30Minutes  =  self.datePicker.date+(timeIntervalSinceNow: 60 * 90)
+            self.minutes  =  self.datePicker.date+(timeIntervalSinceNow: 60 * 90)
         })
         
         let action = AFMAction(title: "Cancel", enabled: true, handler: { (action: AFMAction) -> Void in
-            // Do something in handler
             self.reserveTableBtn.isEnabled = false
             actionSheet.add(cancelling: action)
         })
@@ -208,83 +231,17 @@ class ReserveTableViewController: UIViewController, UIViewControllerTransitionin
         let subview = actionSheet.view.subviews.first! as UIView
         let alertContentView = subview.subviews.first! as UIView
         
-        // actionSheet.backgroundColor = UIColor.lightGray
-        
-      //  actionSheet.view.backgroundColor = UIColor.lightGray
+         actionSheet.backgroundColor = UIColor.lightGray
+         actionSheet.view.backgroundColor = UIColor.lightGray
         
         self.present(actionSheet, animated: true, completion: {
-            // Do something after completion
-            alertContentView.backgroundColor = UIColor.groupTableViewBackground
+            //Disable wheel after user chooses the time
+            // self.datePicker.isEnabled = false
+            
         })
         
-        let query = PFQuery(className: "Schedule")
-        query.findObjectsInBackground { (objects, error) in
-            if error == nil {
-                if let returnedobjects = objects {
-                    for object in returnedobjects {
-                        
-
-
-                      //  print(object["startingDate"] as! Date)
-                      //  print(object["endingDate"] as! Date)
-                        // Get starting date
-                        let startingDate = (object["startingDate"] as! Date)
-                        
-                        
-                        // Get a later date
-                        let endingDate = (object["endingDate"] as! Date)
-                        let pfDate = PFDate(startingDate: startingDate, endingDate: endingDate)
-                        
-                        self.datesArray += [pfDate]
-                    }
-                }
-            }
-            print(self.datesArray)
-        }
-        
-        
-
-        
-        
-//        
-//        // Compare them
-//        switch startingDate.compare(endingDate) {
-//        case .OrderedAscending     :   print("Date A is earlier than date B")
-//        case .OrderedDescending    :   print("Date A is later than date B")
-//        case .OrderedSame          :   print("The two dates are the same")
-//        }
-//        
-   }
-}
-    
-    
-    
-    
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "lengthOfPlaySegue" {
-            
-            let destination = segue.destination as! ChooseTimeViewController
-            
-            // let destinationController = segue.destination as! LengthOfPlayViewController
-            
-            destination.dateFrom = String(describing: datePicker.date)
-            
-            
-            // destination.dateFrom = [String(describing: datePicker.date)]
-            
-            
-        } else {
-            
-            //let destinationController = segue.destination as! SuccessViewController
-            
-        }
-        
-        
-        
     }
+    
 }
-
-*/
 
 

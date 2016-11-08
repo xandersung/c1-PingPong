@@ -55,8 +55,7 @@ class LengthOfPlayViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-    
-    
+
     
      // MARK: - Navigation
      
